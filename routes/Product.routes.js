@@ -3,10 +3,15 @@ const { AddDataModel } = require("../model/DataAdd.model");
 const ProductRouter = express.Router();
 
 ProductRouter.get("/", async (req, res) => {
+  const { limit } = req.query;
+  const { page } = req.query;
   try {
     console.log(req.query);
-    const data = await AddDataModel.find(req.query);
-    res.send(data);
+    const data = await AddDataModel.find(req.query)
+      .limit(limit * 1)
+      .skip((page - 1) * limit);
+    const count = await AddDataModel.count(req.query);
+    res.send({ data, count });
   } catch (error) {
     res.send({ msg: "Unable to get Products", error }).sendStatus(403);
   }
