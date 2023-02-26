@@ -4,12 +4,14 @@ const ProductRouter = express.Router();
 
 ProductRouter.get("/", async (req, res) => {
   try {
-    const data = await AddDataModel.find({});
-    res.sendStatus(200).send(data);
+    const data = await AddDataModel.find(req.query);
+    res.send(data);
   } catch (error) {
-    res.sendStatus(403).send({ msg: "Unable to get Products", error });
+    res.send({ msg: "Unable to get Products", error }).sendStatus(403);
   }
 });
+
+
 
 ProductRouter.post("/create", async (req, res) => {
   const payload = req.body;
@@ -28,7 +30,7 @@ ProductRouter.patch("/:id", async (req, res) => {
   const id = req.params.id;
   try {
     await AddDataModel.findByIdAndUpdate({ _id: id }, payload);
-    res.send("Product Updated").sendStatus(200);
+    res.send("Product Updated");
   } catch (err) {
     res.send({ msg: "Unable to Update", err }).sendStatus(403);
   }
@@ -38,7 +40,7 @@ ProductRouter.delete("/:id", async (req, res) => {
   const id = req.params.id;
   try {
     await AddDataModel.findByIdAndDelete({ _id: id });
-    res.send("Product Deleted").sendStatus(200);
+    res.send("Product Deleted");
   } catch (err) {
     res.send({ msg: "Unable to Delete", err }).sendStatus(403);
   }

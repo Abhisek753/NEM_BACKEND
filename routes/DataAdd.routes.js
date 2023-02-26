@@ -6,7 +6,6 @@ const AddDataRouter=express.Router()
 
 AddDataRouter.get("/",async(req,res)=>{
     const AddDatas= await AddDataModel.find()
-
     res.send(AddDatas)
 })
 
