@@ -12,7 +12,7 @@ const { ProductRouter } = require("./routes/Product.routes");
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use("/product", ProductRouter);
+app.use("/products", ProductRouter);
 app.use("/users", userRouter);
 app.use(authenticator);
 
