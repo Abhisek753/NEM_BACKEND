@@ -11,7 +11,7 @@ ProductRouter.get("/", async (req, res) => {
       .limit(limit * 1)
       .skip((page - 1) * limit);
     const count = await AddDataModel.count(req.query);
-    res.send({ data, count });
+    res.send([data, count]);
   } catch (error) {
     res.send({ msg: "Unable to get Products", error }).sendStatus(403);
   }
