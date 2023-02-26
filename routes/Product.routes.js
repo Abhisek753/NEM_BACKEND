@@ -4,14 +4,13 @@ const ProductRouter = express.Router();
 
 ProductRouter.get("/", async (req, res) => {
   try {
+    console.log(req.query);
     const data = await AddDataModel.find(req.query);
     res.send(data);
   } catch (error) {
     res.send({ msg: "Unable to get Products", error }).sendStatus(403);
   }
 });
-
-
 
 ProductRouter.post("/create", async (req, res) => {
   const payload = req.body;
