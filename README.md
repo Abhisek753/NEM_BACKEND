@@ -17,10 +17,10 @@ Cyclic :https://enchanting-gold-tie.cyclic.app/
 Skinstore webiste looks very amazing and introduced with various type of languages like JavaScript, HTML, CSS etc. There are the some important details regarding with this project which is mentioned below:
 
 <ul dir="auto">
- <ol dir="auto">◉ JavaScript : 91.2%</ol>
- <ol dir="auto">◉ HTML : 1.2%</ol>
- <ol dir="auto">◉ CSS : 7.4%</ol>
- <ol dir="auto">◉ Shell : 0.2%</ol>
+ <ol dir="auto">◉ Express </ol>
+ <ol dir="auto">◉ Mongoose </ol>
+ <ol dir="auto">◉ MongoDb </ol>
+ <ol dir="auto">◉ Node Js</ol>
  </ul>
  
  ## Functionalities
